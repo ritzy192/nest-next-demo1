@@ -18,7 +18,15 @@ export class ItemsService {
             quantity: 8
         }
     ];
+    
     findAll(): Item[] {
        return this.items 
     }
+
+    findOne(id: string): Item {
+        return this.items.find((item)=>{
+            return item.id === id
+        })
+    }
+
 }
