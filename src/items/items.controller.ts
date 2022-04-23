@@ -20,7 +20,7 @@ export class ItemsController {
     
     //short way to use param
     @Get(':id')
-    find(@Param('id') id){
+    find(@Param('id') id): Item{
         return this.itemService.findOne(id)  
     }
 
