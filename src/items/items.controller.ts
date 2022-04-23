@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body } from '@nestjs/common';
+import { CreateItemDto } from './dto/create-item.dto';
 
 @Controller('items')
 export class ItemsController {
@@ -8,7 +9,10 @@ export class ItemsController {
         return 'all items'
     }
     @Post()
-    createItem(){
-        return 'created item'
+    create(@Body() createItem: CreateItemDto){
+        return {
+            name: createItem.name,
+            description: createItem.description
+        }
     }
 }
