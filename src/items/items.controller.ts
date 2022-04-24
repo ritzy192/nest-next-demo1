@@ -9,7 +9,7 @@ export class ItemsController {
     constructor(private readonly itemService: ItemsService){}
 
     @Get()
-    findall(): Item[]{
+    async findall(): Promise<Item[]>{
         return this.itemService.findAll();
     }
     
@@ -20,7 +20,7 @@ export class ItemsController {
     
     //short way to use param
     @Get(':id')
-    find(@Param('id') id): Item{
+    async find(@Param('id') id): Promise<Item>{
         return this.itemService.findOne(id)  
     }
 
@@ -31,7 +31,7 @@ export class ItemsController {
             description: createItem.description
         }
     }
-
+    q11w1
     @Delete(':id')
     delete(@Param('id') id): string {
         return `delete ${id}`
